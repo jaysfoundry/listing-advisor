@@ -1,6 +1,6 @@
 # listing-advisor
 
-eBay listing advisor for collectible hobby items. Send it a message about what you're selling — a trading card, Funko Pop, Disney pin, sealed product — and it returns a complete listing recommendation: pricing, description, category, shipping, and photo guidance.
+Listing advisor for collectible hobby items. Send it a message about what you're selling — a trading card, Funko Pop, Disney pin, sealed product — and it returns a complete listing recommendation: pricing, description, category, shipping, and photo guidance.
 
 Runs as a Discord bot powered by Claude Code Channels.
 
