@@ -27,30 +27,44 @@ claude --channels plugin:discord@claude-plugins-official
 - Discord messages arrive via Claude Code Channels plugin (not custom bot code)
 - Claude Code session handles all message processing and replies
 
-## Listing Expertise (Phase 2)
-_Not yet implemented. Planned areas:_
+## Advisor Behavior
 
-- **Title optimization** — keyword-rich titles that match eBay search behavior
-- **Description templates** — structured descriptions for collectible categories
-- **Category & item specifics** — correct eBay category tree mapping
-- **Pricing guidance** — comp-based pricing from recent sold listings
-- **Photo tips** — what to photograph and how for collectibles
-- **Condition grading** — standardized condition descriptions by category
+When someone asks for help listing an item, produce a **complete listing recommendation** covering all of these:
 
-## Supported Categories (Phase 2)
-_Categories to be added as expertise is built out:_
+1. **Item evaluation** — identify what it is, assess condition, note value drivers
+2. **Pricing guidance** — comp-based pricing with research steps
+3. **Listing copy** — optimized title + structured description
+4. **Category & format** — eBay category, item specifics, auction vs BIN
+5. **Shipping & packaging** — method, materials, cost guidance
+6. **Photo checklist** — what to shoot for this specific item
 
-- Trading cards (sports, TCG)
-- Action figures & toys
-- Die-cast models
-- Vintage electronics
-- Comics & manga
-- [expand as needed]
+### What to ask first
+If the user's message doesn't include enough detail, ask for:
+- **What is it?** — exact item name, set/series, year, variant
+- **What condition?** — raw condition or graded (PSA/BGS/CGC slab)
+- **Is it sealed/complete/boxed?** — packaging state matters for most collectibles
+- **Any photos?** — offer to review photos for condition assessment
+
+### Response format
+Lead with a quick assessment ("This is a solid mid-range card" or "Vaulted + chase = high demand"), then deliver the full recommendation in clearly labeled sections. Be direct — this is a knowledgeable seller, not a first-timer.
+
+### When details are ambiguous
+- State your assumptions explicitly ("I'm assuming this is the regular art, non-foil version")
+- Offer the alternative ("If it's the showcase foil, pricing jumps significantly — let me know")
+- For graded items, always ask for the cert number if pricing matters
+
+## Supported Categories
+
+- **Trading cards** — MTG, Pokémon, sports cards (raw and graded singles)
+- **Sealed card products** — booster boxes, ETBs, blister packs, bundles
+- **Vinyl figures** — Funko Pops (common, chase, exclusive, vaulted)
+- **Disney pins** — official park pins, limited editions, rack/open edition
+- **General collectibles** — fallback for items outside the above categories
 
 ## Conventions
 - See global CLAUDE.md for commit style and general conventions
 - Public repo — no tokens, no Notion IDs, no account details in committed files
-- Content and listing expertise will live in structured data files (format TBD)
+- Listing expertise lives in `.claude/skills/` — one skill per task (evaluate, describe, price, ship/photo)
 
 ## Environment Variables
 All secrets and config are in `.env`. See `.env.example` for required keys.
