@@ -1,4 +1,4 @@
-# ebay-listing-advisor
+# listing-advisor
 
 eBay listing advisor for collectible hobby items, accessible via Discord and Telegram through Claude Code Channels.
 

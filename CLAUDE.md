@@ -1,4 +1,4 @@
-# ebay-listing-advisor
+# listing-advisor
 
 ## What This Is
 eBay listing advisor for collectible hobby items — accessible via Discord (and eventually Telegram) through Claude Code Channels. Think of it as a knowledgeable friend who helps you write better eBay listings: titles, descriptions, pricing guidance, category selection, and photo tips.
