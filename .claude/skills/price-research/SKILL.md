@@ -1,142 +1,151 @@
 # Price Research
 
-Guide the seller through manual comp research to arrive at a well-supported listing price. No API access — this is a process for the seller to follow using free tools and eBay's own data.
+Perform comp analysis research for the seller's item. Use web search to find recent sold prices and market data, then deliver a pricing recommendation with supporting evidence.
 
 ---
 
-## The Comp Research Process
+## How to Research (Instructions for Claude)
 
-### Step 1: Search eBay sold listings
-1. Go to eBay > search for the item (use the exact card name, set, variant, condition/grade)
-2. Filter: **Sold Items** (left sidebar or toggle in filters)
-3. Filter by **condition** to match yours (e.g., "Used" for raw cards, "Brand New" for sealed)
-4. Sort by **Date: Newest First** to get current market pricing
+When asked to price an item, **do the research yourself** using web search. Don't tell the seller to go look things up.
 
-### Step 2: Collect the last 10 comparable sales
-- Look at the **last 10 sold listings** that closely match your item
-- "Closely match" means: same card/item, same condition/grade, same variant
-- Skip outliers (mispriced items, damaged items listed as NM, bulk lots that included the item)
-- Note whether sales were auction or BIN — auction prices trend lower than BIN
+### Step 1: Search for recent sold prices
+Run web searches for the item using queries like:
+- `[item name] [set/variant] eBay sold price`
+- `[item name] [condition/grade] sold listings`
+- `[item name] TCGPlayer market price` (for trading cards)
+- `[item name] PPG value` or `[item name] HobbyDB price` (for Funko Pops)
 
-### Step 3: Calculate your target price
-- **Median** of the 10 comps = your baseline price
-- Don't use the average — outliers skew it. Median is more reliable
-- For BIN listings: price at or slightly above median (you can wait for the right buyer)
-- For auctions: start at 60–70% of median (competition will drive it up if demand exists)
+### Step 2: Compile comparable sales
+From search results, pull out **actual sold prices** — not asking prices. Look for:
+- Recent eBay sold listings (last 30–90 days)
+- TCGPlayer Market Price (for cards)
+- PPG/HobbyDB estimated value (for Funko)
+- Any other marketplace data that surfaces
 
-### Step 4: Adjust for your specific item
-- **Grade premium**: PSA 10 > PSA 9 > raw NM. If your grade is higher than most comps, price above median
-- **Variant/edition**: 1st edition, chase, exclusive stickers — if comps include a mix, filter tighter
-- **Completeness/condition**: Better box condition (Funko), seal integrity (sealed), or centering (cards) = price up
-- **Timing**: Recently released items may be declining; older items may be appreciating. Check 90-day trend
+Aim for 3–10 comparable sales. Note the condition/grade of each comp relative to the seller's item.
 
-### Important: Best Offer pricing
-- Many eBay sales end via "Best Offer Accepted" — the shown sold price is the accepted offer, NOT the listed BIN price
-- Standard eBay sold listings search shows accepted offer prices correctly
-- For additional verification, use 130point.com which specifically tracks Best Offer accepted prices
-- When pricing BIN + Best Offer: set BIN 10–15% above your target to leave room for negotiation
+### Step 3: Analyze and recommend
+- Calculate the **median** of comps (not the average — outliers skew it)
+- Adjust for the seller's specific item (condition, variant, completeness)
+- Provide a **recommended listing price** (BIN) and a **floor price** (lowest acceptable offer)
+- Note the listing format recommendation (auction vs BIN + Best Offer)
+
+### Step 4: Present findings
+Format the pricing recommendation like this:
+
+```
+## Pricing
+
+**Estimated market value:** $XX – $XX
+**Recommended BIN price:** $XX
+**Best Offer floor (auto-decline below):** $XX
+**Recommended format:** [BIN + Best Offer / Auction]
+
+### Comps found:
+- [Item description] — sold $XX on [date/source]
+- [Item description] — sold $XX on [date/source]
+- [Item description] — sold $XX on [date/source]
+...
+
+### Notes:
+[Any context on pricing — trending up/down, low supply, seasonal factors, condition adjustments]
+```
 
 ---
 
-## Category-Specific Pricing References
+## Where to Search by Category
 
-### Trading Cards
-
-**TCGPlayer** (tcgplayer.com)
-- Best source for MTG and Pokemon card market prices
-- Shows Market Price (rolling average of recent sales) and listed prices by condition
-- Use the **Market Price** as your baseline, then cross-reference with eBay sold listings
-- Condition-specific: NM, LP, MP, HP, DMG prices listed separately
-- TCGPlayer prices are typically slightly lower than eBay (lower fees attract lower prices)
-
-**Alternative card pricing tools:**
-- **JustTCG** (justtcg.com) — condition-specific pricing, deal hunting
-- **MTGStocks** (mtgstocks.com) — price history and trends for MTG
-- **PriceCharting** (pricecharting.com) — Pokemon and sports card pricing, good for vintage
-- **Mavin** (mavin.io) — aggregates eBay sold data, good for quick lookups
-
-**Sports cards specifically:**
-- **130point.com** — eBay Best Offer price tracker, essential for sports card pricing
-- **Card Ladder** (cardladder.com) — graded card price tracking and trends
-- **COMC** (comc.com) — marketplace with price history data
+### Trading Cards (MTG, Pokemon, Sports)
+- **Primary:** `[card name] [set] [condition] eBay sold` and `[card name] [set] TCGPlayer price`
+- **TCGPlayer Market Price** is the best single-number reference for cards. It's a rolling average of recent sales, broken out by condition (NM, LP, MP, HP, DMG)
+- TCGPlayer prices typically run slightly lower than eBay (lower seller fees)
+- For graded cards: search `[card name] [grading company] [grade] sold`
+- **Sports cards:** also search `[card name] [year] [parallel] 130point` — 130point.com specifically tracks Best Offer accepted prices
+- **Useful sites:** TCGPlayer, PriceCharting (vintage/Pokemon), MTGStocks (MTG trends), Card Ladder (graded sports cards), Mavin (eBay sold aggregator)
 
 ### Sealed Card Products
-
-- **TCGPlayer** for MTG sealed (booster boxes, collector boxes)
-- **PriceCharting** for Pokemon sealed products
-- **eBay sold listings** are the primary source — sealed product prices are volatile and set-dependent
-- Check **both** eBay and TCGPlayer/hobby shop prices — eBay often runs higher due to buyer convenience
+- **Primary:** `[product name] [set] sealed eBay sold price`
+- Sealed product prices are volatile — prioritize the most recent sales
+- Cross-reference eBay with TCGPlayer (MTG sealed) or PriceCharting (Pokemon sealed)
+- eBay prices often run higher than hobby shop prices due to buyer convenience
 
 ### Funko Pops
-
-**Pop Price Guide / HobbyDB** (hobbydb.com)
-- The standard reference for Funko Pop values
-- Shows estimated value based on aggregated marketplace sales (200k+ monthly transactions)
-- Tracks graded vs ungraded values
-- Check if a Pop is **Vaulted** here — vaulted status significantly impacts price trajectory
-- PPG values tend to be conservative — eBay sold listings may run higher for in-demand items
+- **Primary:** `[character] Funko Pop #[number] PPG value` and `[character] Funko Pop eBay sold`
+- **Pop Price Guide (PPG) / HobbyDB** processes 200k+ monthly transactions — its estimated value is a solid baseline
+- PPG values tend to be conservative — eBay sold listings may run 10–20% higher for in-demand items
+- Always check vaulted status — search `[character] Funko Pop vaulted`
+- For graded Pops: search specifically for the grade (`PSA 9 [character] Funko Pop sold`)
 
 ### Disney Pins
+- **Primary:** `Disney [pin name/design] pin eBay sold` and `Disney [pin name] LE [count] pin price`
+- **PinPics** (pinpics.com) is the identification reference — use it to confirm edition details, not for pricing
+- Disney pin pricing data is thinner than other categories. If comps are sparse, note this honestly
+- LE pins with very small runs (under 250) may have few or no recent comps — state this and give a range based on what's available
 
-**PinPics** (pinpics.com)
-- Free Disney Pin Trading Database
-- Reference images, edition documentation, authentication guides
-- Limited pricing data — use primarily for identification and edition verification
-- Cross-reference with eBay sold listings for actual market prices
+---
 
-**Pin trading groups** (Facebook, Reddit r/DisneyPinSwap)
-- Useful for gauging demand on hard-to-price pins
-- Limited Edition pins with small runs may have very few eBay comps — community knowledge helps
+## Pricing Adjustments
+
+### Grade premiums (apply after finding comps)
+- PSA 10 vs PSA 9: PSA 10 is typically 2–4x the PSA 9 price
+- PSA 10 vs raw NM: 2–5x for modern cards, 5–20x for vintage/key cards
+- BGS 9.5 ≈ PSA 10 in value for most modern cards
+- BGS Black Label 10 > PSA 10, sometimes significantly
+- If your seller's item is a higher grade than most comps, adjust up accordingly
+
+### Condition adjustments
+- Raw NM card with comps mostly in LP: price 15–30% above LP comps
+- Funko with mint box vs comps with VG boxes: price 20–40% above
+- Sealed product with perfect shrink vs comps with shelf wear: price at top of range
+
+### Best Offer math
+- Many eBay collectible sales close via Best Offer — typically 10–20% below BIN
+- When recommending BIN + Best Offer: set BIN 10–15% above target price
+- Set auto-decline at the floor price (lowest the seller should accept)
+- Set auto-accept at or just above target price
 
 ---
 
 ## Supply and Demand Signals
 
-### Signs of high demand (price up)
-- Sells within hours of listing (you can price higher)
-- Multiple watchers on similar active listings
-- Auction prices exceeding BIN prices (rare but it happens)
-- Item is trending (new set release, movie/show tie-in, content creator spotlight)
-- Low supply on eBay (few active listings for the item)
+Look for these while researching — they affect the recommendation:
 
-### Signs of soft demand (price down or auction)
-- Comps show declining prices over 30–90 days
-- Many active listings with no watchers
-- Auctions ending below BIN prices consistently
-- Item has been reprinted, re-released, or a new version supersedes it
-- Market is flooded after a popular product release
+### High demand (price up)
+- Few active listings but many recent solds
+- Items selling within hours/days of listing
+- Trending item (new set release, movie/show tie-in, content creator spotlight)
+- Recently vaulted/discontinued
 
-### Sell-through rate
-- Compare **sold listings** (last 90 days) to **active listings** (current)
-- High ratio (many sold, few active) = strong demand, price confidently
-- Low ratio (few sold, many active) = slow market, consider auction or competitive pricing
-- For commodity items, a sell-through rate below 30% means you're competing on price
+### Soft demand (price down or auction)
+- Many active listings, few recent solds
+- Declining sold prices over the last 30–90 days
+- Item has been reprinted or superseded
+- Market flooded after a popular product release
+
+### Sell-through context
+When you find both sold and active listing counts, note the ratio:
+- High sold / low active = strong demand, price confidently
+- Low sold / high active = competitive market, consider pricing at or below median
 
 ---
 
 ## Seasonal Patterns
 
-- **Q4 (Oct–Dec)**: Highest prices for most collectibles. Holiday buying drives demand. List your best items here
-- **January**: Post-holiday dip. Buyers spent their budgets. Prices soften
-- **Tax refund season (Feb–Apr)**: Recovery in spending, especially for bigger purchases ($100+ items)
-- **Summer**: Mixed. Conventions (SDCC July, GenCon Aug) spike specific categories
-- **New set releases**: Prices for singles and sealed product from the new set are highest at release and decline over the first 2–4 weeks. Sell new pulls fast
-- **Rotation/ban announcements**: MTG cards rotating out of Standard drop; newly unbanned cards spike
+Factor these into the recommendation when relevant:
+- **Q4 (Oct–Dec)**: Peak prices. Holiday demand. Best time to list high-value items
+- **January**: Post-holiday dip. Prices soften across categories
+- **Feb–Apr**: Tax refund recovery. Bigger purchases pick up
+- **Summer**: Convention season (SDCC July, GenCon Aug) spikes specific items
+- **New set releases**: Singles and sealed product price highest at release, decline over 2–4 weeks
+- **Rotation/ban announcements**: MTG Standard rotation drops rotating cards; unbans spike affected cards
 
 ---
 
-## When to Price Above Comps
+## When Research Is Thin
 
-- Your item is in better condition than most sold comps
-- Your photos are significantly better (builds buyer confidence)
-- Supply is dwindling (you have one of the last available)
-- The item is trending upward (check 30/60/90 day price trajectory)
-- Your item has a distinguishing feature (perfect centering, desirable subgrades, rare sticker variant)
-
-## When to Price Below Comps
-
-- You want a fast sale (liquidity over margin)
-- Your item has a flaw most comps don't (describe it honestly)
-- Supply is increasing (reprints, new product releases flooding the market)
-- The item is trending downward — price to sell before it drops further
-- You're a newer seller building feedback (competitive pricing builds rep faster)
+If web search doesn't return enough comp data:
+- Say so honestly: "I found limited recent sales data for this item"
+- Give the best range you can from what's available
+- Suggest the seller check eBay sold listings directly (filter by Sold Items) for more granular data
+- For very rare items, recommend auction format for price discovery
+- Note if community knowledge (Reddit, Facebook groups) might help for niche items
