@@ -1,7 +1,7 @@
 {
   "name": "@jaysfoundry/listing-advisor",
   "version": "0.1.0",
-  "description": "eBay listing advisor for collectible hobby items, accessible via Discord and Telegram through Claude Code Channels",
+  "description": "Listing advisor for collectible hobby items, accessible via Discord and Telegram through Claude Code Channels",
   "type": "module",
   "main": "src/index.js",
   "scripts": {
