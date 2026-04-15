@@ -8,6 +8,9 @@ Perform comp analysis research for the seller's item. Use web search to find rec
 
 When asked to price an item, **do the research yourself** using web search. Don't tell the seller to go look things up.
 
+### Context budget rule
+**Use WebSearch exclusively — never Fetch full product or retailer pages.** A single retailer page (TCGPlayer, MTGStocks, secretlair.wizards.com) dumps 150–350 KB of HTML into context for maybe 500 bytes of useful pricing data. WebSearch snippets already contain the sold prices, market values, and trend data you need at ~5 KB per search. Fetching pages will exhaust the context window and prevent you from delivering the recommendation.
+
 ### Step 1: Search for recent sold prices
 Run web searches for the item using queries like:
 - `[item name] [set/variant] eBay sold price`

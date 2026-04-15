@@ -70,13 +70,13 @@ Exit the Claude Code session normally (`/exit`, Ctrl+C, or close the terminal).
 
 The Discord plugin runs on **Bun** (not Node), and it survives after the Claude session ends. The bot will still appear online in Discord — it maintains its WebSocket connection — but messages go nowhere.
 
-Find and kill the orphaned Bun process:
+Find and kill the orphaned Discord plugin process:
 
 ```bash
-ps aux | grep bun
-# Find the PID(s) for the channel plugin
-kill -9 <PID>
+pkill -9 -f "bun.*discord"
 ```
+
+This targets only the Discord channel plugin. A broader `pkill -9 -f bun` would also hit macOS system processes that have "bundle" in their path.
 
 The bot goes offline in Discord once the Bun process is killed.
 
